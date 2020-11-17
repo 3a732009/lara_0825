@@ -39,10 +39,14 @@ Route::get('/', function () {
     $post->title='saved title';
     $post->content='saved content';
     $post->save();*/
-    $post=Post::find(1);
+    //$post=Post::find(1);
     //$post->delete();
    // \App\Models\Post::destroy(2);
-    \App\Models\Post::destroy(3,5,7);
+    //\App\Models\Post::destroy(3,5,7);
+    //$allPosts=Post::all();
+    //dd($allPosts);
+    $featuredPosts=Post::where('is_feature',1)->get();
+    dd($featuredPosts);
 });
 
 Route::get('posts',[PostsController::class, 'index'])->name('posts.index');
