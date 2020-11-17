@@ -19,10 +19,17 @@ Route::get('/', function () {
     $post->title='test title';
     $post->content='test content';
     $post->save();*/
-    Post::create([
+    /*Post::create([
         'title'=>'test title',
         'content'=>'test content',
-    ]);
+    ]);*/
+    /*$posts=Post::all();
+    dd($posts);
+*/
+    /*$post=Post::find(1);
+    dd($post);*/
+    $posts=Post::where('id','<',10)->orderBy('id','DESC')->get();
+    dd($posts);
 });
 
 Route::get('posts',[PostsController::class, 'index'])->name('posts.index');
