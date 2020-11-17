@@ -45,8 +45,12 @@ Route::get('/', function () {
     //\App\Models\Post::destroy(3,5,7);
     //$allPosts=Post::all();
     //dd($allPosts);
-    $featuredPosts=Post::where('is_feature',1)->get();
-    dd($featuredPosts);
+    /*$featuredPosts=Post::where('is_feature',1)->get();
+    dd($featuredPosts);*/
+    /*$fourthPost=Post::find(4);
+    dd($fourthPost);*/
+    $lastPost=Post::orderBy('id','DESC')->first();
+    dd($lastPost);
 });
 
 Route::get('posts',[PostsController::class, 'index'])->name('posts.index');
