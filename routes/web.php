@@ -49,8 +49,14 @@ Route::get('/', function () {
     dd($featuredPosts);*/
     /*$fourthPost=Post::find(4);
     dd($fourthPost);*/
-    $lastPost=Post::orderBy('id','DESC')->first();
-    dd($lastPost);
+   /* $lastPost=Post::orderBy('id','DESC')->first();
+    dd($lastPost);*/
+
+
+   $post=\App\Models\Post::find(4);
+    foreach ($post->comments as $comment){
+        echo $comment->content.'<br>';
+    }
 });
 
 Route::get('posts',[PostsController::class, 'index'])->name('posts.index');
